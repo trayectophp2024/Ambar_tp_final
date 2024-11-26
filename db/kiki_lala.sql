@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-11-2024 a las 13:59:50
+-- Tiempo de generación: 26-11-2024 a las 17:33:15
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -26,28 +26,22 @@ USE `kiki&lala`;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `marcas`
+-- Estructura de tabla para la tabla `catalogos`
 --
 
-CREATE TABLE `marcas` (
+CREATE TABLE `catalogos` (
   `id` int(11) NOT NULL,
-  `marca` varchar(30) NOT NULL
+  `nombre_catalogo` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `marcas`
+-- Volcado de datos para la tabla `catalogos`
 --
 
-INSERT INTO `marcas` (`id`, `marca`) VALUES
-(1, 'Dragon Renee'),
-(2, 'Paris Night'),
-(3, 'Keliya Beauty'),
-(4, 'MELU by Ruby Rose'),
-(5, 'FLOWER ushas'),
-(6, 'Favourbeauty'),
-(7, 'MELY'),
-(8, 'Kaliya Beauty'),
-(9, 'Chovemoar');
+INSERT INTO `catalogos` (`id`, `nombre_catalogo`) VALUES
+(1, 'Makeup'),
+(2, 'Skincare'),
+(3, 'Accesorios');
 
 -- --------------------------------------------------------
 
@@ -60,18 +54,19 @@ CREATE TABLE `productos` (
   `nombre` varchar(30) NOT NULL,
   `descripcion` text NOT NULL,
   `precio` decimal(10,2) NOT NULL,
+  `marca` varchar(50) NOT NULL,
   `imagen` varchar(70) NOT NULL,
-  `id_marca` int(11) NOT NULL
+  `id_catalogo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `imagen`, `id_marca`) VALUES
-(1, 'Labial matte', 'Marca japonesa\r\n            >intransferibles.\r\n', 1200.00, 'labialmateDragonRene.webp', 1),
-(2, 'Brochas de ojos', 'Brochas para ojos\r\n            >2 modelos:\r\n            !Brocha para aplicar sombras\r\n            !Brocha para difuminar', 2000.00, 'brocha.jpg', 1),
-(3, 'Espuma de limpieza facial', 'Reemplaza tu desmaquillante por algo más sano para tu piel\r\n          >Apta para piel sensible\r\n', 4400.00, 'limpieza.jpg', 1);
+INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `marca`, `imagen`, `id_catalogo`) VALUES
+(1, 'Labial matte', 'Marca japonesa\r\n            >intransferibles.\r\n', 1200.00, 'marca', 'labialmateDragonRene.webp', 1),
+(2, 'Brochas de ojos', 'Brochas para ojos\r\n            >2 modelos:\r\n            !Brocha para aplicar sombras\r\n            !Brocha para difuminar', 2000.00, 'marca', 'brocha.jpg', 1),
+(3, 'Espuma de limpieza facial', 'Reemplaza tu desmaquillante por algo más sano para tu piel\r\n          >Apta para piel sensible\r\n', 4400.00, 'marca', 'limpieza.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -92,9 +87,9 @@ CREATE TABLE `usuarios` (
 --
 
 --
--- Indices de la tabla `marcas`
+-- Indices de la tabla `catalogos`
 --
-ALTER TABLE `marcas`
+ALTER TABLE `catalogos`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -102,7 +97,7 @@ ALTER TABLE `marcas`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_marca` (`id_marca`);
+  ADD KEY `fk_marca` (`id_catalogo`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -115,9 +110,9 @@ ALTER TABLE `usuarios`
 --
 
 --
--- AUTO_INCREMENT de la tabla `marcas`
+-- AUTO_INCREMENT de la tabla `catalogos`
 --
-ALTER TABLE `marcas`
+ALTER TABLE `catalogos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
@@ -140,7 +135,7 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD CONSTRAINT `fk_marca` FOREIGN KEY (`id_marca`) REFERENCES `marcas` (`id`);
+  ADD CONSTRAINT `fk_marca` FOREIGN KEY (`id_catalogo`) REFERENCES `catalogos` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

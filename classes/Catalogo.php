@@ -1,8 +1,8 @@
 <?php
 
-    class Marca {
+    class Catalogo {
          protected $id;
-         protected $marca;
+         protected $nombre_catalogo;
 
          
          /* Todos los productos */
@@ -12,7 +12,7 @@
 
         $conexion = (new Conexion())->getConexion();
 
-        $query = "SELECT * FROM marcas";
+        $query = "SELECT * FROM catalogos";
 
         $PDOStatment = $conexion->prepare($query);
 
@@ -31,7 +31,7 @@
 
         $conexion = (new Conexion())->getConexion();
 
-        $query = "SELECT * FROM marcas WHERE id = $id";
+        $query = "SELECT * FROM catalogos WHERE id = $id";
 
         $PDOStatment = $conexion->prepare($query);
 
@@ -56,12 +56,15 @@
                   return $this->id;
          }
 
+        
+        
+
          /**
-          * Get the value of marca
+          * Get the value of nombre_catalogo
           */ 
-         public function getMarca()
+         public function getNombre_catalogo()
          {
-                  return $this->marca;
+                  return $this->nombre_catalogo;
          }
     }
 

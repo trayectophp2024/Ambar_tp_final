@@ -9,13 +9,13 @@ $productos = $miProductoCatalogo->catalogo_x_categoria($id_categoria);
 
 
 
-$marca = (new Marca())->get_x_id($id_categoria); 
+$marca = (new Catalogo())->get_x_id($id_categoria); 
 
 
 
 ?>
 
-<h1 class="text-center my-5 ">Productos  de <?= $marca->getMarca() ?> </h1>
+<h1 class="text-center my-5 ">Productos  de <?= $marca->getNombre_catalogo() ?> </h1>
 
 <div class="row">
 

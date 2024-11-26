@@ -5,8 +5,9 @@ class Producto {
     protected $nombre;
     protected $descripcion;
     protected $precio;
+    protected $marca;
     protected $imagen;
-    protected $id_marca;
+    protected $id_catalogo;
 
     //metodos
     //devolver el listado completo de los personajes
@@ -35,7 +36,7 @@ class Producto {
         
     $conexion = (new Conexion())->getConexion();
 
-    $query = "SELECT * FROM productos WHERE id_marca = $id";
+    $query = "SELECT * FROM productos WHERE id_catalogo = $id";
 
     $PDOStatment = $conexion->prepare($query);
 
@@ -76,8 +77,8 @@ public function producto_x_id(int $idProducto){
 
 }
 
-public function getMarca() {
-    $marca = (new Marca())->get_x_id($this->id_marca);
+public function getCatalogo() {
+    $marca = (new Catalogo())->get_x_id($this->id_catalogo);
     $nombre = $marca->getMarca();
     return $nombre; 
 }
@@ -206,12 +207,22 @@ public function delete(){
         return $this->imagen;
     }
 
+  
+
     /**
-     * Get the value of id_marca
+     * Get the value of id_catalogo
      */ 
-    public function getId_marca()
+    public function getId_catalogo()
     {
-        return $this->id_marca;
+        return $this->id_catalogo;
+    }
+
+    /**
+     * Get the value of marca
+     */ 
+    public function getMarca()
+    {
+        return $this->marca;
     }
 }
 
