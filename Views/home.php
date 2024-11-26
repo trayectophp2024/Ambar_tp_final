@@ -16,21 +16,21 @@
         </div>
         <div class="carousel-inner 200px">
           <div class="carousel-item active">
-            <a href="index.php?sec=categorias&categoria=makeup"><img src="img/flortransparente.png" class="d-block w-100" alt="maquillaje"></a>
+            <a href="index.php?sec=categorias&cat=1"><img src="img/flortransparente.png" class="d-block w-100" alt="maquillaje"></a>
             <div class="carousel-caption d-none d-md-block">
               <h1 class="fs-2 text-black">Makeup</h1>
               <p class="fs-3 text-black bs-light">Las mejores marcas a los precios que buscas.</p>
             </div>
           </div>
           <div class="carousel-item">
-            <a href="index.php?sec=categorias&categoria=skincare"><img src="img/skincaretransparente.png" class="d-block w-100" alt="comboskincare"></a>
+            <a href="index.php?sec=categorias&cat=2"><img src="img/skincaretransparente.png" class="d-block w-100" alt="comboskincare"></a>
             <div class="carousel-caption d-none d-md-block">
               <h5 class="fs-2 text-black">Skincare</h5>
               <p class=" bs-danger-border-subtle fs-3 text-black">Cuidamos tu piel, como vos tu billetera.</p>
             </div>
           </div>
           <div class="carousel-item">
-            <a href="index.php?sec=categorias&categoria=accesorios"><img src="img/brochatransparente.png" class="d-block w-100" alt="esponjas"></a>
+            <a href="index.php?sec=categorias&cat=3"><img src="img/brochatransparente.png" class="d-block w-100" alt="esponjas"></a>
             <div class="carousel-caption d-none d-md-block">
               <h5 class="fs-2 text-black">Accesorios</h5>
               <p class="fs-3 text-black">La mejor manera mas economica para maquillarte.</p>

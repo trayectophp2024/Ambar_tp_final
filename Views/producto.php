@@ -11,7 +11,7 @@ $producto = $miObjetoProducto->producto_x_id($id);
 
 <div class="row">
     <?php if (isset($producto)) { ?>
-        <h1 class="text-center text-capitalize my-5"><?= $producto->getMarca() ?></h1>
+        <h1 class="text-center text-capitalize my-5"><?= $producto->getNombre()  ?></h1>
         <div class="col">
             <div class="card mb-5">
                 <div class="row g-0">
@@ -20,7 +20,6 @@ $producto = $miObjetoProducto->producto_x_id($id);
                     </div>
                     <div class="col-5 d-flex flex-column p-3">
                         <div class="card-body flex-grow-0">
-                            <p class="fs-2 m-0 fw-bold text-primary"><?= $producto->getNombre() ?>
                             <h2 class="card-title fs-3 mb-4"><?= $producto->getDescripcion()?></h2>
                         </div>
                         <ul class="list-group">

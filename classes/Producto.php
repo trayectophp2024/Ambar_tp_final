@@ -89,10 +89,10 @@ public function getCatalogo() {
 
 /* metodod para insertar un nuevo personaje  */
 
-public function insert($nombre,$descripcion,$precio,$imagen,$id_marca){
+public function insert($nombre,$descripcion,$precio,$imagen,$id_catalogo){
     $conexion = (new Conexion())->getConexion();
 
-    $query= "INSERT INTO productos(id,nombre,descripcion,precio,imagen,id_marca)
+    $query= "INSERT INTO productos(id,nombre,descripcion,precio,imagen,id_catalogo)
     VALUES (NULL,:nombre,:descripcion,:precio,:imagen,:id_marca)";
 
     $PDOstatement = $conexion->prepare($query);
@@ -104,7 +104,7 @@ public function insert($nombre,$descripcion,$precio,$imagen,$id_marca){
             'descripcion' => $descripcion,
             'precio' => $precio,
             'imagen' => $imagen,
-            'id_marca' => $id_marca,
+            'id_catalogo' => $id_catalogo,
         ]
 
     );
@@ -113,10 +113,10 @@ public function insert($nombre,$descripcion,$precio,$imagen,$id_marca){
 
 /* METODO PARA EDITAR UN maquillaje */
 
-public function edit($nombre,$descripcion,$precio,$imagen,$id,$id_marca){
+public function edit($nombre,$descripcion,$precio,$marca, $id_catalogo,$id){
     $conexion = (new Conexion())->getConexion();
 
-    $query= "UPDATE productos SET nombre = :nombre, descripcion = :descripcion, precio = :precio , id_marca = :id_marca WHERE id = :id";
+    $query= "UPDATE productos SET nombre = :nombre, descripcion = :descripcion, precio = :precio , marca = :marca , id_catalogo = :id_catalogo WHERE id = :id";
 
     $PDOstatement = $conexion->prepare($query);
 
@@ -127,7 +127,8 @@ public function edit($nombre,$descripcion,$precio,$imagen,$id,$id_marca){
             'nombre' => $nombre,
             'descripcion' => $descripcion,
             'precio' => $precio,
-            'id_marca' => $id_marca
+            'marca' => $marca,
+            'id_catalogo' => $id_catalogo
         ]
 
     );
