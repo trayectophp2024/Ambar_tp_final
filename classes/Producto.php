@@ -35,7 +35,7 @@ class Producto {
         
     $conexion = (new Conexion())->getConexion();
 
-    $query = "SELECT * FROM productos WHERE id_catalogo = $id";
+    $query = "SELECT * FROM productos WHERE id_marca = $id";
 
     $PDOStatment = $conexion->prepare($query);
 
@@ -75,6 +75,13 @@ public function producto_x_id(int $idProducto){
 
 
 }
+
+public function getMarca() {
+    $marca = (new Marca())->get_x_id($this->id_marca);
+    $nombre = $marca->getMarca();
+    return $nombre; 
+}
+
 
 
 

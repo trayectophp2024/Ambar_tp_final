@@ -5,7 +5,47 @@
          protected $marca;
 
          
-         
+         /* Todos los productos */
+    public function catalogo_completo(): array
+    {
+        $resultado = [];
+
+        $conexion = (new Conexion())->getConexion();
+
+        $query = "SELECT * FROM marcas";
+
+        $PDOStatment = $conexion->prepare($query);
+
+        $PDOStatment->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatment->execute();
+
+        $resultado = $PDOStatment->fetchAll();
+
+        return $resultado;
+    }
+
+    // devuelve los datos de un personaje en particular 
+    public function get_x_id(int $id)
+    {
+
+
+        $conexion = (new Conexion())->getConexion();
+
+        $query = "SELECT * FROM marcas WHERE id = $id";
+
+        $PDOStatment = $conexion->prepare($query);
+
+        $PDOStatment->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatment->execute();
+
+        $resultado = $PDOStatment->fetch();
+
+        if (!$resultado) {
+            return null;
+        }
+
+        return $resultado;
+    }
 
 
          /**

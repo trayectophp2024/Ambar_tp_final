@@ -4,7 +4,7 @@ class Conexion {
     //atributos
     public const DB_SERVER = "localhost";
     public const DB_USER = "root";
-    public const DB_PASS = "";
+    public const DB_PASS = "root";
     public const DB_NAME = "kiki&lala";
 
     const DB_DNS = "mysql:host=" . self::DB_SERVER . ";dbname=" . self::DB_NAME . ";charset=utf8mb4" ;

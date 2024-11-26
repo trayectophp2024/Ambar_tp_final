@@ -76,13 +76,13 @@ if (!array_key_exists($seccion, $secciones_validas)) {
                     <a class="pcolores nav-link" aria-current="page" href="index.php?sec=home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="pcolores nav-link" href="index.php?sec=categorias&categoria=makeup">Makeup</a>
+                    <a class="pcolores nav-link" href="index.php?sec=categorias&cat=1">Makeup</a>
                 </li>
                 <li class="nav-item">
-                    <a class="pcolores nav-link" href="index.php?sec=categorias&categoria=skincare">Skincare</a>
+                    <a class="pcolores nav-link" href="index.php?sec=categorias&cat=2">Skincare</a>
                 </li>
                 <li class="nav-item">
-                    <a class="pcolores nav-link" href="index.php?sec=categorias&categoria=accesorios">Accesorios</a>
+                    <a class="pcolores nav-link" href="index.php?sec=categorias&cat=3">Accesorios</a>
                 </li>
                 <li class="nav-item">
                     <a class="pcolores nav-link" href="index.php?sec=nosotras">Nosotras</a>
