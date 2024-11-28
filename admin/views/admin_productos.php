@@ -22,6 +22,7 @@ $producto = (new Producto())->lista_completa();
                         <th style="background-color: #e0b0ff;"  scope="col">Descripcion</th>
                         <th style="background-color: #e0b0ff;"  scope="col">Marca</th>
                         <th style="background-color: #e0b0ff;" scope="col">Precio</th>
+                        <th style="background-color: #e0b0ff;" scope="col">Catalogo</th>
                         <th style="background-color: #e0b0ff;" scope="col">Accion</th>
                     </tr>
                 </thead>
@@ -35,6 +36,7 @@ $producto = (new Producto())->lista_completa();
                             <td style="background-color: #fff0ff;"><?= $p->getDescripcion() ?></td>
                             <td style="background-color: #fff0ff;"><?= $p->getMarca() ?></td>
                             <td style="background-color: #fff0ff;"><?= $p->getPrecio() ?></td>
+                            <td style="background-color: #fff0ff;"><?= $p->getCatalogo() ?></td>
                             <td style="background-color: #fff0ff;">
                             <button type="button" style="background-color:#ccdbfd" class="btn mt-2" ><a class="text-decoration-none text-black" href="index.php?sec=edit_producto&id=<?= $p->getId() ?>">editar</a></button>
                             <button type="button" style="background-color:#f1666d" class="btn mt-2" ><a class="text-decoration-none text-black" href="index.php?sec=delete_producto&id=<?= $p->getId() ?>">eliminar</a></button>

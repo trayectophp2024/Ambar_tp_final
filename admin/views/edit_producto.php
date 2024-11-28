@@ -2,6 +2,8 @@
 
 $id = $_GET['id'] ?? FALSE;
 
+$catalogos = (new Catalogo())->catalogo_completo();
+
 $producto = (new Producto())->producto_x_id($id);
 
 ?>
@@ -55,13 +57,17 @@ $producto = (new Producto())->producto_x_id($id);
 
           
 
-         
+          
 
-            <div class="col-12 mb-3">
-                <label class="form-label" for="id_catalogo">Catalogo <label>
-                <input type="text" class="form-control" name="id_catalogo" id="id_catalogo" value="<?= $producto->getId_catalogo() ?>" required>
-                
-            </div>
+            <div class="col-md-6 mb-3">
+                    <label for="id_catalogo" class="form-label">Catalogo</label>
+                    <select style="background-color:#f1d7ff" class="form-select" name="id_catalogo" id="id_catalogo" required>
+                        <option value="" selected disabled>Elija una opción</option>
+                        <?php foreach ($catalogos as $c) {  ?>
+                            <option style="background-color:#f1d7ff" value="<?= $c->getId() ?>"  <?= $c->getId() == $producto->getId_catalogo() ? "selected" : ""   ?> ><?= $c->getNombre_catalogo() ?></option>
+                        <?php  } ?>
+                    </select>
+                </div>
 
             <button type="submit" type="button" style="background-color:#ccdbfd" class="btn">Editar Producto</button>
 
