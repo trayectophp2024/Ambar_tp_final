@@ -28,7 +28,7 @@ try {
 
    
 
-    $producto->edit($postData['nombre'],$postData['descripcion'],$postData['marca'],$postData['precio'],$postData['id_catalogo'], $id);
+    $producto->edit($postData['nombre'],$postData['descripcion'],$postData['precio'],$postData['marca'],$postData['id_catalogo'], $id);
 
     header("location: ../index.php?sec=admin_productos");
 } catch (\Exception $e) {

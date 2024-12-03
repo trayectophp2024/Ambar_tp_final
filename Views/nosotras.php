@@ -9,12 +9,6 @@
                 <img width="450px" class="d-block mx-auto img-fluid" src="img/telefono.jpg_large" alt="">
             </div>
         </div>
-        <div class="col-2 mb-5">
-          <h5 class="text-center">Nuestro instagram OwO</h5>
-          <a href="#">
-            <img width="100" class="img-fluid" src="img/Instagram_icon.png.webp" alt="cheha">
-          </a>
-        </div>
     </div>
 
 </div>

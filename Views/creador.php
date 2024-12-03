@@ -6,7 +6,7 @@
             <li class="list-group-item">Pagina creada para uso comercial en un futuro :D ahre</li>   
             <li class="list-group-item">Instagram de la creadora por si se quiere OwO: @cosmarie.am o @_marie.amg_ UwU Y el emprendimiento: @kikiylala.shop
             </li>
-            <li class="list-group-item"><img width="500px" class="d-block mx-auto img-fluid" src="img/imgpt.jpeg" alt="foto"></li>
+            <li class="list-group-item"><img width="300px" class="d-block mx-auto img-fluid" src="img/yo/koko.webp" alt="foto"></li>
         </ul>
         
     </div>

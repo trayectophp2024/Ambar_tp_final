@@ -3,22 +3,31 @@
 require_once "../functions/autoload.php";
 
 $secciones_validas = [
+    "login" => [
+        "titulo" => "Inicio de Session",
+        "restringido" => FALSE
+    ],
     "dashboard" => [
-        "titulo" => "Bienvenidos"
+        "titulo" => "Bienvenidos",
+        "restringido" => TRUE
     ],
     "admin_productos" => [
-        "titulo" => "Administrador de Producto"
+        "titulo" => "Administrador de Producto",
+        "restringido" => TRUE
     ],
-    "add_producto"=> [
-        "titulo" => "Agregar Producto"
+    "add_producto" => [
+        "titulo" => "Agregar Producto",
+        "restringido" => TRUE
     ],
-    "edit_producto"=> [
-        "titulo" => "Editar Producto"
+    "edit_producto" => [
+        "titulo" => "Editar Producto",
+        "restringido" => TRUE
     ],
-    "delete_producto"=> [
-        "titulo" => "borrar Producto"
+    "delete_producto" => [
+        "titulo" => "borrar Producto",
+        "restringido" => TRUE
     ],
- 
+
 ];
 
 $seccion = $_GET['sec'] ?? "dashboard";
@@ -31,8 +40,14 @@ if (!array_key_exists($seccion, $secciones_validas)) {
     $titulo = "404 - pagina no encontrada";
 } else {
     $vista = $seccion;
+
+    if ($secciones_validas[$seccion]['restringido']) {
+        (new Autenticacion())->verify();
+       }
     $titulo = $secciones_validas[$seccion]['titulo'];
 }
+
+$userData = $_SESSION['loggedIn'] ?? FALSE;
 
 ?>
 
@@ -54,7 +69,7 @@ if (!array_key_exists($seccion, $secciones_validas)) {
 <body>
 
     <!-- Navegacion -->
-    <nav  class="navbar navbar-expand-lg" style="background-color:#FDB0C0;">
+    <nav class="navbar navbar-expand-lg" style="background-color:#FDB0C0;">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">Kiki Y Lala Shop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,12 +78,18 @@ if (!array_key_exists($seccion, $secciones_validas)) {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-light" aria-current="page" href="index.php?sec=dashboard">Dashboard</a>
+                        <a class="nav-link text-light <?= $userData ? "" : "d-none" ?>" aria-current="page" href="index.php?sec=dashboard">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light"aria-current="page" href="index.php?sec=admin_productos">Admin de Productos</a>
+                        <a class="nav-link text-light <?= $userData ? "" : "d-none" ?>" aria-current="page" href="index.php?sec=admin_productos">Admin de Productos</a>
                     </li>
-                   
+                    <li class="nav-item">
+                        <a class="nav-link  text-light <?= $userData ? "d-none" : "" ?>" aria-current="page" href="index.php?sec=login">Login</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link text-light <?= $userData ? "" : "d-none" ?>" aria-current="page" href="actions/auth_logout.php">LogOut</a>
+                    </li>
+
                 </ul>
             </div>
         </div>

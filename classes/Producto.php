@@ -78,8 +78,8 @@ public function producto_x_id(int $idProducto){
 }
 
 public function getCatalogo() {
-    $marca = (new Catalogo())->get_x_id($this->id_catalogo);
-    $nombre = $marca->getMarca();
+    $catalogo= (new Catalogo())->get_x_id($this->id_catalogo);
+    $nombre = $catalogo->getNombre_catalogo();
     return $nombre; 
 }
 
@@ -89,11 +89,11 @@ public function getCatalogo() {
 
 /* metodod para insertar un nuevo personaje  */
 
-public function insert($nombre,$descripcion,$precio,$imagen,$id_catalogo){
+public function insert($nombre,$descripcion,$precio,$marca,$imagen,$id_catalogo){
     $conexion = (new Conexion())->getConexion();
 
-    $query= "INSERT INTO productos(id,nombre,descripcion,precio,imagen,id_catalogo)
-    VALUES (NULL,:nombre,:descripcion,:precio,:imagen,:id_marca)";
+    $query= "INSERT INTO productos(id,nombre,descripcion,precio,marca,imagen,id_catalogo)
+    VALUES (NULL,:nombre,:descripcion,:precio,:marca,:imagen,:id_catalogo)";
 
     $PDOstatement = $conexion->prepare($query);
 
@@ -103,8 +103,9 @@ public function insert($nombre,$descripcion,$precio,$imagen,$id_catalogo){
             'nombre' => $nombre,
             'descripcion' => $descripcion,
             'precio' => $precio,
+            'marca' => $marca,
             'imagen' => $imagen,
-            'id_catalogo' => $id_catalogo,
+            'id_catalogo' => $id_catalogo
         ]
 
     );

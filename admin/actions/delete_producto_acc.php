@@ -9,7 +9,7 @@ $producto = (new Producto())->producto_x_id($id);
 
 try {
     if (!empty($producto->getImagen())) {
-        (new Imagen())->borrarImagen(__DIR__ . "/../../img/personajes/" . $producto->getImagen());
+        (new Imagen())->borrarImagen(__DIR__ . "img/" . $producto->getImagen());
     }
 
     $producto->delete();
@@ -18,5 +18,5 @@ try {
 
     header("location: ../index.php?sec=admin_productos");
 } catch (\Exception $e) {
-    die("no se puede eliminar el personaje" . $e);
+    die("no se puede eliminar el producto" . $e);
 }

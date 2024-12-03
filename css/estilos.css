@@ -12,3 +12,10 @@ body{
 .pcolores{
     color: white;
 }
+
+.redes-sociales i {
+    font-size: 25px;
+    color: #000;
+    text-decoration: none;
+    margin-left: 20px;
+}
